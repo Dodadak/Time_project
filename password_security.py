@@ -107,3 +107,4 @@ def genetic_algorithm(target_password):
         f"{best_individual} 해당 비밀번호는 "
         f"{security_rating(best_individual)} 입니다"
     )
+
