@@ -40,3 +40,4 @@ def generate_input():
     else:
         password = generate_password(keywords, password_length)
         print(f"Generated Password: {password}")
+
