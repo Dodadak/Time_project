@@ -40,11 +40,10 @@ def generate_input():
     special_chars = ['!', '@', '#']  
     random.choice(special_chars)
     
-
     # 비밀번호 생성
     if password_length < 8:
         print("8 이상의 비밀번호만 생성 가능합니다")
     else:
         password = generate_password(keywords, password_length)
-        print(f"Generated Password: {password + random_number + random.choice(special_chars)}")
+        print(f"Generated Password: {password+random_number+random.choice(special_chars)}")
 
