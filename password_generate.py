@@ -34,10 +34,17 @@ def generate_input():
     keywords = [word.strip() for word in keywords_input.split(",")]
     password_length = int(input("Enter password length: "))
 
+    length = random.randint(1, 6)  # 1부터 6까지 랜덤 자릿수
+    random_number = ''.join(str(random.randint(0, 9)) for _ in range(length))  # 자릿수만큼 0부터 9까지 랜덤 숫자 뽑기
+
+    special_chars = ['!', '@', '#']  
+    random.choice(special_chars)
+    
+
     # 비밀번호 생성
     if password_length < 8:
         print("8 이상의 비밀번호만 생성 가능합니다")
     else:
         password = generate_password(keywords, password_length)
-        print(f"Generated Password: {password}")
+        print(f"Generated Password: {password + random_number + random.choice(special_chars)}")
 
