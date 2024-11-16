@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* 배경 검정색 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .password-container {
+            background-color: #333; /* 박스 어두운 회색 */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            width: 300px; /* 컨테이너 크기 고정 */
+        }
+        .password-container h1 {
+            text-align: center;
+            color: #fff; /* 텍스트 흰색 */
+            margin-bottom: 20px;
+        }
+        .password-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #fff; /* 레이블 텍스트 흰색 */
+        }
+        .password-container input {
+            width: calc(100% - 22px); /* 버튼과 동일한 폭 */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff; /* 입력 박스 흰색 */
+            color: #000; /* 입력 텍스트 검정색 */
+        }
+        .password-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745; /* 버튼 초록색 */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .password-container button:hover {
+            background-color: #218838; /* 버튼 호버 시 더 어두운 초록색 */
+        }
+    </style>
+</head>
+<body>
+    <div class="password-container">
+        <h1>Password Strength</h1>
+        <form action="/check-password" method="POST">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Check Strength</button>
+        </form>
+    </div>
+</body>
+</html>
