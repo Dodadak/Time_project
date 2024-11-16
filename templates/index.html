@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team_Hong</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .button-container {
+            background-color: #333; 
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            width: 300px; 
+            text-align: center; 
+        }
+        .button-container h1 {
+            color: #fff; 
+            margin-bottom: 20px;
+        }
+        .button-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #28a745; 
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .button-container button:hover {
+            background-color: #218838; 
+        }
+    </style>
+</head>
+<!-- 추가 페이지 생길 시 버튼 누르면 들어가지게 추가 해주세영~ - 두현 -->
+<!-- 추가된 부분임 다들 이 이름에 맞춰주세요 - 한용 -->
+<!-- 웹페이지 경로 문제가 있어 보여요 url_for로 설정해주세요- 두현 -->
+<body>
+    <div class="button-container">
+        <h1>Team_Hong</h1>
+        <a href="{{ url_for('verification') }}"><button>Verification</button></a> <!-- 수정했습니다 - 한용 -->
+        <a href="{{ url_for('recommend') }}"><button>Recommend</button></a>
+    </div>
+</body>
+</html>
