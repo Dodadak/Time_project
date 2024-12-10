@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keyword Strength Checker</title>
+    <title>Password Recommendation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,56 +14,62 @@
             height: 100vh;
             margin: 0;
         }
-        .keyword-container {
-            background-color: #333; 
+        .recommend-container {
+            background-color: #333;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            width: 300px; 
+            width: 300px;
         }
-        .keyword-container h1 {
+        .recommend-container h1 {
             text-align: center;
-            color: #fff; 
+            color: #fff;
             margin-bottom: 20px;
         }
-        .keyword-container label {
+        .recommend-container label {
             display: block;
             margin-bottom: 5px;
-            color: #fff; 
+            color: #fff;
         }
-        .keyword-container input {
-            width: calc(100% - 22px); 
+        .recommend-container input {
+            width: calc(100% - 22px);
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            background-color: #fff; 
-            color: #000; 
         }
-        .keyword-container button {
+        .recommend-container button {
             width: 100%;
             padding: 10px;
-            background-color: #28a745; 
+            background-color: #28a745;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
         }
-        .keyword-container button:hover {
-            background-color: #218838; 
+        .recommend-container button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
-    <div class="keyword-container">
-        <h1>Keyword Strength</h1>
-        <form action="/check-keyword" method="POST">
-            <label for="keyword">Keyword</label>
+    <div class="recommend-container">
+        <h1>Password Generator</h1>
+        <form method="POST">
+            <label for="keyword">Keyword:</label>
             <input type="text" id="keyword" name="keyword" required>
-            <button type="submit">Check Strength</button>
+            <label for="length">Password Length:</label>
+            <input type="number" id="length" name="length" value="12" min="8" required>
+            <button type="submit">Generate Password</button>
         </form>
+
+        {% if password %}
+        <h2>Your Generated Password:</h2>
+        <p>{{ password }}</p>
+        {% elif error %}
+        <h2>Error:</h2>
+        <p>{{ error }}</p>
+        {% endif %}
     </div>
 </body>
 </html>
