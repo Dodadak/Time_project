@@ -5,36 +5,33 @@ import os
 
 # Flask 인스턴스 생성 시 템플릿 경로 지정
 app = Flask(__name__, template_folder=os.path.join(os.getcwd(), 'Time_project/templates'))
-
 @app.route('/')
-def home():
+def index():
     return render_template('index.html')
 
 @app.route('/verification', methods=['GET', 'POST'])
 def verification():
     if request.method == 'POST':
         password = request.form['password']
-        score = total_score(password)
-        rating = security_rating(password)
-        return render_template(
-            'Verification.html',
-            password=password,
-            score=score,
-            rating=rating,
-        )
+        score = password_security.total_score(password)
+        rating = password_security.security_rating(password)
+        return render_template('Verification.html', score=score, rating=rating)
     return render_template('Verification.html')
 
 @app.route('/recommend', methods=['GET', 'POST'])
 def recommend():
     if request.method == 'POST':
-        keyword = request.form.get('keyword')
-        length = int(request.form.get('length', 12))
+        keyword = request.form['keyword']
+        length = int(request.form['length'])
         try:
-            password = generate_password(keyword, length)  
+            password = password_generate.generate_password(keyword, length)
             return render_template('Recommend.html', password=password)
         except ValueError as e:
             return render_template('Recommend.html', error=str(e))
     return render_template('Recommend.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=5000)
