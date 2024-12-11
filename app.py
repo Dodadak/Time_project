@@ -5,6 +5,7 @@ import os
 
 # Flask 인스턴스 생성 시 템플릿 경로 지정
 app = Flask(__name__, template_folder=os.path.join(os.getcwd(), 'Time_project/templates'))
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -13,8 +14,8 @@ def index():
 def verification():
     if request.method == 'POST':
         password = request.form['password']
-        score = password_security.total_score(password)
-        rating = password_security.security_rating(password)
+        score = total_score(password)
+        rating = security_rating(password)
         return render_template('Verification.html', score=score, rating=rating)
     return render_template('Verification.html')
 
@@ -24,7 +25,7 @@ def recommend():
         keyword = request.form['keyword']
         length = int(request.form['length'])
         try:
-            password = password_generate.generate_password(keyword, length)
+            password = generate_password(keyword, length)
             return render_template('Recommend.html', password=password)
         except ValueError as e:
             return render_template('Recommend.html', error=str(e))
