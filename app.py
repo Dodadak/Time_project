@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
-from Time_project.password_security import total_score, security_rating  # 비밀번호 보안 점수 및 등급 계산 함수 가져오기
-from Time_project.password_generate import generate_password  # 비밀번호 생성 함수 가져오기
+from Time_project.password_security import total_score, security_rating  # 비밀번호 보안 점수 및 등급 계산 함수
+from Time_project.password_generate import generate_password  # 비밀번호 생성 함수
 
 # Flask 애플리케이션 초기화
 app = Flask(__name__)
