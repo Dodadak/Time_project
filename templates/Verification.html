@@ -72,13 +72,25 @@
         <form action="/verification" method="POST">
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required>
+
+            <label for="hint">Password Hint</label>
+            <input type="text" id="hint" name="hint" placeholder="Optional hint">
+            
             <button type="submit">Check Strength</button>
         </form>
 
         {% if score %}
         <div class="result {% if rating == '안전' %}safe{% elif rating == '보통' %}average{% else %}unsafe{% endif %}">
-            <p>Score: {{ score }}</p>
-            <p>Security Rating: {{ rating }}</p>
+            <p>비밀번호 점수: {{ score }}</p>
+            <p>보안 등급: 
+                {% if rating == '안전' %}
+                    <span>안전 (추천)</span>
+                {% elif rating == '보통' %}
+                    <span>보통 (개선 필요)</span>
+                {% else %}
+                    <span>위험 (변경 권장)</span>
+                {% endif %}
+            </p>
         </div>
         {% endif %}
     </div>
